@@ -1,0 +1,279 @@
+.panel-login {
+    border-color: #ccc;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.panel-login>.panel-heading {
+    color: #00415d;
+    background-color: #fff;
+    border-color: #fff;
+    text-align:center;
+}
+.panel-login>.panel-heading a{
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    font-size: 15px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+    color: #029f5b;
+    font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    clear: both;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"], .panel-login select {
+    height: 45px;
+    font-size: 16px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.btn-login {
+    background-color: #59B2E0;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+    color: #fff;
+    background-color: #53A3CD;
+    border-color: #53A3CD;
+}
+.forgot-password {
+    text-decoration: underline;
+    color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+    text-decoration: underline;
+    color: #666;
+}
+
+.btn-register {
+    background-color: #1CB94E;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+    color: #fff;
+    background-color: #1CA347;
+    border-color: #1CA347;
+}
+
+.resultados {
+    float: left;
+}
+
+.centrado {
+    display: block;
+    margin: auto;
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.clear {
+    clear: both;
+}
+/* CALLOUTS DE BOOTSTRAP */
+
+.bs-callout {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+.bs-callout h5 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+
+.bs-callout-danger h5 {
+    color: #d9534f;
+}
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-warning h5 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+
+li {
+    margin-bottom: 10px !important;
+}
+
+.center-captcha {
+    margin-left: 21.5%;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.logo-mpf {
+    width: 25%;
+    margin-top: 50px;
+}
+
+.big-hruler {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top: 5px solid #eee;
+}
+
+.title-separator {
+    margin-bottom: 30px;
+}
+
+.campo-error {
+    color: red;
+    border: 2px solid #f00;
+}
+
+.campo-valido {
+    color: green;
+    border: 2px solid green;
+}
+
+.campo-error::-webkit-input-placeholder {
+    color: red;
+}
+
+.campo-error::-moz-placeholder {
+    color: red;
+}
+
+.datepicker:read-only{
+    background-color: white;
+}
+
+.datepicker:-moz-read-only {
+    background-color: white;
+}
+
+
+.resultados dt {
+    width: 270px;
+}
+
+.resultados dt, dd {
+    font-size: 15px;
+}
+
+@media (min-width: 768px){
+    .resultados dd {
+        margin-left: 48%;
+
+    }
+
+    .center-buttons {
+        width: 43%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 400px){
+    .center-buttons {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px){
+    .center-buttons {
+        width: 89%;
+        margin: 0 auto;
+    }
+}
+
+.user-label {
+    float:left;
+    clear:left;
+    width:25em;/* tune this, you may other div for input too*/
+    text-align: right;
+    font-weight: bold;
+}
+
+.user-value{
+    float:left;
+    margin-left: 10px;
+}
