@@ -24,47 +24,6 @@ class Persona implements \JsonSerializable
     private $antecedentes;
 
     /**
-     * Persona constructor.
-     * @param $apellido
-     * @param $nombre
-     * @param $documento
-     * @param $cuil
-     * @param $sexo
-     * @param $fechanac
-     * @param $domicilio
-     * @param $localidad
-     * @param $codpostal
-     * @param $telfijo
-     * @param $telcelular
-     * @param $email
-     * @param $tituloUniversitario
-     * @param $fechaTituloUniversitario
-     * @param $fechaTituloEspecialidad
-     * @param $sancion
-     * @param $antecedentes
-     */
-    public function __construct($apellido, $nombre, $documento, $cuil, $sexo, $fechanac, $domicilio, $localidad, $codpostal, $telfijo, $telcelular, $email, $tituloUniversitario, $fechaTituloUniversitario, $fechaTituloEspecialidad, $sancion, $antecedentes)
-    {
-        $this->apellido = $apellido;
-        $this->nombre = $nombre;
-        $this->documento = $documento;
-        $this->cuil = $cuil;
-        $this->sexo = $sexo;
-        $this->fechanac = $fechanac;
-        $this->domicilio = $domicilio;
-        $this->localidad = $localidad;
-        $this->codpostal = $codpostal;
-        $this->telfijo = $telfijo;
-        $this->telcelular = $telcelular;
-        $this->email = $email;
-        $this->tituloUniversitario = $tituloUniversitario;
-        $this->fechaTituloUniversitario = $fechaTituloUniversitario;
-        $this->fechaTituloEspecialidad = $fechaTituloEspecialidad;
-        $this->sancion = $sancion;
-        $this->antecedentes = $antecedentes;
-    }
-
-    /**
      * @return mixed
      */
     public function getApellido()

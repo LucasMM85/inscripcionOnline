@@ -16,8 +16,7 @@ require_once("model/Persona.php");
 require_once("model/ErrorInscripcion.php");
 require_once("db/funcionesDb.php");
 
-//if(isset($_POST['documento']) && isset($_POST['sexo'])){
-$idConcurso = 5;
+$idConcurso = 7;
 $persona = new Persona();
 $persona->setApellido($_POST['apellido_input']);
 $persona->setNombre($_POST['nombre_input']);
@@ -33,7 +32,7 @@ $persona->setTelcelular($_POST['telcelular_input']);
 $persona->setEmail($_POST['email_input']);
 $persona->setTituloUniversitario($_POST['titulo_univ']);
 $persona->setFechaTituloUniversitario($_POST['fechatitulomedico_input']);
-$persona->setFechaTituloEspecialidad($_POST['fechatituloespecialidad_input']);
+$persona->setFechaTituloEspecialidad(null);
 $persona->setSancion($_POST['sancionado_input']);
 $persona->setAntecedentes($_POST['antecedentes_input']);
 
@@ -53,7 +52,7 @@ $query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.ape
                                           '".$idConcurso."'::conc.idconcurso,
                                           '".$persona->getSancion()."'::pub.sino,
                                           '".$persona->getFechaTituloUniversitario()."'::pub.observaciones,
-                                          '".$persona->getFechaTituloEspecialidad()."'::pub.observaciones,
+                                          'null'::pub.observaciones,
                                           '".$persona->getAntecedentes()."'::pub.sino)";
 
     $consulta = asignarTurno($query);
@@ -65,7 +64,6 @@ $query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.ape
         $inscripcion->setIdInscripcion($consulta['idinscripcion'][1]);
         $status = ',"status":'.$consulta["error"][0];
         $jsonResponse = json_encode($inscripcion);
-        //$jsonResponse = addStatus($jsonResponse, $consulta["error"][0]);
         $jsonResponse = substr_replace($jsonResponse, $status, strlen($jsonResponse)-1, 0);
     } else if ($consulta["error"][0] == 1 && strcmp(!$consulta["errmsg"][0],"")){
         $errorMessage = new ErrorInscripcion();
@@ -91,15 +89,6 @@ $query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.ape
     }
     header('Content-Type: application/json');
     echo $jsonResponse;
-/*} else {
-    $mensaje = "Ocurrió un error al procesar la inscripción.";
-    $errorMessage = new ErrorInscripcion();
-    $errorMessage->setErrorType(1);
-    $errorMessage->setErrorMessage($mensaje);
-    $jsonResponse = json_encode($errorMessage);
-    $jsonResponse = addStatus($jsonResponse, 1);
-    echo $jsonResponse;
-}*/
 
 function addStatus($jsonString, $status){
     $jsonString = rtrim($jsonString, '}');

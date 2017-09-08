@@ -24,7 +24,7 @@
                     <div class="panel-title text-center">
                         <img src="css/logompf.png" class="img-responsive center-block logo-mpf">
                             <hr class="big-hruler" />
-                        <h3 class="title-separator">CONCURSO PÚBLICO DE OPOSICIÓN Y ANTECEDENTES DE MÉDICO FORENSE – PEDIATRA</h3>
+                        <h3 class="title-separator">CONCURSO PÚBLICO DE OPOSICIÓN Y ANTECEDENTES: BIOQUÍMICO FORENSE</h3>
                     </div>
                 </div>
 
@@ -52,23 +52,23 @@
                                 </div>
                                 <div>
                                     <div class="user-label">Apellido/s:</div>
-                                    <div class="user-value" id="apellidos">Un valor extremadamente largo para probar</div>
+                                    <div class="user-value" id="apellidos"></div>
                                 </div>
                                 <div>
                                     <div class="user-label">DNI:</div>
-                                    <div class="user-value" id="dni">[field_country]</div>
+                                    <div class="user-value" id="dni"></div>
                                 </div>
                                 <div>
                                     <div class="user-label">CUIL:</div>
-                                    <div class="user-value" id="cuil">[field_country]</div>
+                                    <div class="user-value" id="cuil"></div>
                                 </div>
                                 <div>
                                     <div class="user-label">Sexo:</div>
-                                    <div class="user-value" id="sexo_output">[field_country]</div>
+                                    <div class="user-value" id="sexo_output"></div>
                                 </div>
                                 <div>
                                     <div class="user-label">Domicilio:</div>
-                                    <div class="user-value" id="domicilio">[field_country]</div>
+                                    <div class="user-value" id="domicilio"></div>
                                 </div>
                                 <div>
                                     <div class="user-label">Localidad:</div>
@@ -89,10 +89,6 @@
                                 <div>
                                     <div class="user-label">Fecha de Título Universitario:</div>
                                     <div class="user-value" id="fecha_titulo_univ"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Fecha de Obtención de especialidad:</div>
-                                    <div class="user-value" id="fecha_titulo_especialidad"></div>
                                 </div>
                                 <div>
                                     <div class="user-label">¿Sancionado o excluído?:</div>
@@ -118,14 +114,12 @@
                             <hr>
                         </div>
                         <div class="panel-body text-center" id="cuerpoInicial">
-                            <a id="btnVerConstancia" class="btn btn-info btn-lg" href="javascript:mostrarVerConstancia()">Ver Constancia</a>
-
-                            <!-- <div class="center-buttons">
+                            <div class="center-buttons">
                                 <div class="btn-toolbar">
                                     <a id="btnVerConstancia" class="btn btn-info btn-lg" href="javascript:mostrarVerConstancia()">Ver Constancia</a>
                                     <a id="btnInscripcion" class="btn btn-info btn-lg" href="javascript:mostrarInscripcion()">Inscripción</a>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -208,6 +202,10 @@
                                             <input type="text" name="cuit_input" id="cuit_input" tabindex="1" class="form-control" placeholder="Nro. CUIT/CUIL" value="">
                                         </div>
                                         <div class="form-group">
+                                            <label for="email_input">E-mail:</label>
+                                            <input type="text" name="email_input" id="email_input" tabindex="1" class="form-control" placeholder="E-mail" value="">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="sexo">Sexo:</label>
                                             <select class="form-control" tabindex="1" name="sexo" id="sexo">
                                                 <option value="-1" disabled selected>Seleccione...</option>
@@ -242,24 +240,15 @@
                                             <input type="text" name="telcelular_input" id="telcelular_input" tabindex="1" class="form-control" placeholder="Teléfono Celular" value="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="email_input">E-mail:</label>
-                                            <input type="text" name="email_input" id="email_input" tabindex="1" class="form-control" placeholder="E-mail" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="titulo_univ">Título Universitario -Médico:</label>
+                                            <label for="titulo_univ">Título Universitario:</label>
                                             <select class="form-control" tabindex="1" name="titulo_univ" id="titulo_univ">
                                                 <option value="-1" disabled selected>Seleccione...</option>
-                                                <option value="pediatra">MÉDICO PEDIATRA</option>
-                                                <option value="cirpediatra">MÉDICO CIRUJANO PEDIÁTRICO</option>
+                                                <option value="bioquimico">BIOQUÍMICO</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="fechatitulomedico_input">Fecha de otorgamiento del título de Médico:</label>
+                                            <label for="fechatitulomedico_input">Fecha de otorgamiento del título de Bioquímico:</label>
                                             <input type="text" name="fechatitulomedico_input" id="fechatitulomedico_input" tabindex="1" placeholder="Seleccione la fecha" class="form-control datepicker" value="" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechatituloespecialidad_input">Fecha de otorgamiento del título de la especialidad médica:</label>
-                                            <input type="text" name="fechatituloespecialidad_input" id="fechatituloespecialidad_input" placeholder="Seleccione la fecha" tabindex="1" class="form-control datepicker" value="" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="sancionado_input">¿Ha sido sancionado o excluído de la matrícula profesional o inhabilitado para el desempeño de cargos públicos?:</label>

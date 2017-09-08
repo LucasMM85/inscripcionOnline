@@ -64,7 +64,6 @@ function completarDatos($response) {
     $('#codpostal').text($response.persona.codpostal);
     $('#titulo_universitario').text($('#titulo_univ option:selected').text());
     $('#fecha_titulo_univ').text($response.persona.fechaTituloUniversitario);
-    $('#fecha_titulo_especialidad').text($response.persona.fechaTituloEspecialidad);
     $('#sancionado_output').text($('#sancionado_input option:selected').text());
     $('#antecedentes_output').text($('#antecedentes_input option:selected').text());
     $('#mensajeConfirmacion').text('Se ha inscripto/modificado correctamente!')
@@ -106,7 +105,6 @@ function verConstancia($response, $pantallaInicial) {
     $('#codpostal').text($response.persona.codpostal);
     $('#titulo_universitario').text($response.persona.tituloUniversitario);
     $('#fecha_titulo_univ').text($response.persona.fechaTituloUniversitario);
-    $('#fecha_titulo_especialidad').text($response.persona.fechaTituloEspecialidad);
     $('#sancionado_output').text($response.persona.sancion);
     $('#antecedentes_output').text($response.persona.antecedentes);
     $("#"+$pantallaInicial).hide();
