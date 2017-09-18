@@ -1,0 +1,132 @@
+<!-- FORMULARIO DE INSCRIPCION -->
+<div class="col-md-6 col-md-offset-3" id="ajaxDivRequest">
+    <div class="panel panel-login">
+        <div class="panel-heading">
+            <div class="row">
+                <h3>Inscripción</h3>
+            </div>
+            <hr>
+        </div>
+        <div class="panel-body" id="divTurno">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="formInscripcion" name="formInscripcion" ng-submit="inscribir()" style="display: block;">
+                        <div class="form-group">
+                            <label for="apellido_input">Apellido:</label>
+                            <input type="text" name="apellido_input" id="apellido_input" tabindex="1" class="form-control"
+                                   placeholder="Apellido" value="" ng-model="apellido_input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre_input">Nombre:</label>
+                            <input type="text" name="nombre_input" id="nombre_input" tabindex="1" class="form-control"
+                                   placeholder="Nombre" value="" ng-model="nombre_input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dni_input">DNI:</label>
+                            <input type="text" name="dni_input" id="dni_input" tabindex="1" class="form-control"
+                                   placeholder="Nro. DNI" value="" ng-model="dni_input" restrict-to="[0-9]" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cuit_input">CUIT/CUIL:</label>
+                            <input type="text" name="cuit_input" id="cuit_input" tabindex="1" class="form-control"
+                                   placeholder="Nro. CUIT/CUIL" ng-model="cuil_input" restrict-to="[0-9]" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="sexo">Sexo:</label>
+                            <select class="form-control" tabindex="1" name="sexo" id="sexo"
+                                    ng-model="sexoId"
+                                    ng-options="sexo.sexoId as sexo.sexoName for sexo in sexos" required>
+                                <option value="" disabled selected>Seleccione...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fechanac_input">Fecha de Nacimiento:</label>
+                            <input type="text" readonly="true" name="fechanac_input" id="fechanac_input" tabindex="1"
+                                   class="form-control datepicker" placeholder="Seleccione la fecha"
+                                   value="" ng-model="fechaNac" datepicker required>
+                        </div>
+                        <div class="form-group">
+                            <label for="domicilio_input">Domicilio:</label>
+                            <input type="text" name="domicilio_input" id="domicilio_input" tabindex="1" class="form-control"
+                                   placeholder="Domicilio" value="" ng-model="domicilio_input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="localidad">Localidad:</label>
+                            <select class="form-control" tabindex="1" name="localidad" id="localidad"
+                                    ng-model="idLocalidad"
+                                    ng-options="localidad.idLocalidad as localidad.nombreLocalidad for localidad in localidades">
+                                <option value="" disabled selected>Seleccione...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpostal_input">Código Postal:</label>
+                            <input type="text" name="cpostal_input" id="cpostal_input" tabindex="1" class="form-control"
+                                   placeholder="Código Postal" ng-model="cpostal_input" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telfijo_input">Teléfono Fijo:</label>
+                            <input type="text" name="telfijo_input" id="telfijo_input" tabindex="1" class="form-control"
+                                   placeholder="Teléfono Fijo" value="" ng-model="telfijo_input" required restrict-to="[0-9]">
+                        </div>
+                        <div class="form-group">
+                            <label for="telcelular_input">Teléfono Celular:</label>
+                            <input type="text" name="telcelular_input" id="telcelular_input" tabindex="1" class="form-control"
+                                   placeholder="Teléfono Celular" value="" ng-model="telcelular_input" restrict-to="[0-9]" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email_input">E-mail:</label>
+                            <input type="email" name="email_input" id="email_input" tabindex="1" class="form-control"
+                                   placeholder="E-mail" value="" ng-model="email_input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo_univ">Título Universitario:</label>
+                            <select class="form-control" tabindex="1" name="titulo_univ" id="titulo_univ"
+                                    ng-model="tituloId"
+                                    ng-options="titulo.tituloId as titulo.tituloName for titulo in titulos">
+                                <option value="" disabled selected>Seleccione...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fechatitulomedico_input">Fecha de otorgamiento del título de Médico:</label>
+                            <input type="text" name="fechatitulomedico_input" id="fechatitulomedico_input" tabindex="1" placeholder="Seleccione la fecha"
+                                   class="form-control datepicker" value="" readonly
+                                   ng-model="fechaTitulo" datepicker>
+                        </div>
+                        <div class="form-group">
+                            <label for="fechatituloespecialidad_input">Fecha de finalizacion de la especialidad, residencia, pasantía o concurrencia:</label>
+                            <input type="text" name="fechatituloespecialidad_input" id="fechatituloespecialidad_input" placeholder="Seleccione la fecha" tabindex="1"
+                                   class="form-control datepicker" value="" readonly
+                                   ng-model="fechaFinEspecialidad" datepicker>
+                        </div>
+                        <div class="form-group">
+                            <label for="sancionado_input">¿Ha sido sancionado o excluído de la matrícula profesional o inhabilitado para el desempeño de cargos públicos?:</label>
+                            <select class="form-control" tabindex="1" name="sancionado_input" id="sancionado_input"
+                                    ng-model="sancionado"
+                                    ng-options="booleano.booleanoId as booleano.booleanoName for booleano in booleanos">
+                                <option value="" disabled selected>Seleccione...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="antecedentes_input">¿Cuenta con antecedentes penales?:</label>
+                            <select class="form-control" tabindex="1" name="antecedentes_input" id="antecedentes_input"
+                                    ng-model="antecedentes"
+                                    ng-options="booleano.booleanoId as booleano.booleanoName for booleano in booleanos">
+                                <option value="" disabled selected>Seleccione...</option>
+                            </select>
+                        </div>
+
+                        <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
+                        <div id="dvCaptcha" class="g-recaptcha center-captcha" data-sitekey="6LdLSyQUAAAAADqKK5aoMIif1rjcuIJ4hSKER1Xp"></div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Aceptar">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

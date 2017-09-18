@@ -24,47 +24,6 @@ class Persona implements \JsonSerializable
     private $antecedentes;
 
     /**
-     * Persona constructor.
-     * @param $apellido
-     * @param $nombre
-     * @param $documento
-     * @param $cuil
-     * @param $sexo
-     * @param $fechanac
-     * @param $domicilio
-     * @param $localidad
-     * @param $codpostal
-     * @param $telfijo
-     * @param $telcelular
-     * @param $email
-     * @param $tituloUniversitario
-     * @param $fechaTituloUniversitario
-     * @param $fechaTituloEspecialidad
-     * @param $sancion
-     * @param $antecedentes
-     */
-    public function __construct($apellido, $nombre, $documento, $cuil, $sexo, $fechanac, $domicilio, $localidad, $codpostal, $telfijo, $telcelular, $email, $tituloUniversitario, $fechaTituloUniversitario, $fechaTituloEspecialidad, $sancion, $antecedentes)
-    {
-        $this->apellido = $apellido;
-        $this->nombre = $nombre;
-        $this->documento = $documento;
-        $this->cuil = $cuil;
-        $this->sexo = $sexo;
-        $this->fechanac = $fechanac;
-        $this->domicilio = $domicilio;
-        $this->localidad = $localidad;
-        $this->codpostal = $codpostal;
-        $this->telfijo = $telfijo;
-        $this->telcelular = $telcelular;
-        $this->email = $email;
-        $this->tituloUniversitario = $tituloUniversitario;
-        $this->fechaTituloUniversitario = $fechaTituloUniversitario;
-        $this->fechaTituloEspecialidad = $fechaTituloEspecialidad;
-        $this->sancion = $sancion;
-        $this->antecedentes = $antecedentes;
-    }
-
-    /**
      * @return mixed
      */
     public function getApellido()
@@ -373,5 +332,29 @@ class Persona implements \JsonSerializable
     function jsonSerialize()
     {
         return get_object_vars($this);
+    }
+
+    public function newPersona($apellido, $nombre, $documento, $cuil, $sexo, $fechanac, $domicilio, $localidad, $codpostal, $telfijo, $telcelular,
+                               $email, $tituloUniv, $fechaTituloUniv, $fechaTituloEsp, $sancion, $antecedentes){
+        $persona = new Persona();
+        $persona->setApellido($apellido);
+        $persona->setNombre($nombre);
+        $persona->setDocumento($documento);
+        $persona->setCuil($cuil);
+        $persona->setSexo($sexo);
+        $persona->setFechanac($fechanac);
+        $persona->setDomicilio($domicilio);
+        $persona->setLocalidad($localidad);
+        $persona->setCodpostal($codpostal);
+        $persona->setTelfijo($telfijo);
+        $persona->setTelcelular($telcelular);
+        $persona->setEmail($email);
+        $persona->setTituloUniversitario($tituloUniv);
+        $persona->setFechaTituloUniversitario($fechaTituloUniv);
+        $persona->setFechaTituloEspecialidad($fechaTituloEsp);
+        $persona->setSancion($sancion);
+        $persona->setAntecedentes($antecedentes);
+
+        return $persona;
     }
 }
