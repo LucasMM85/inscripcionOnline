@@ -41,7 +41,7 @@ $persona->setFechaTituloEspecialidad($_POST['fechaEspecialidad']);
 $persona->setSancion($_POST['sancionado']);
 $persona->setAntecedentes($_POST['antecedentes']);
 
-$query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.apellidos,
+/*$query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.apellidos,
                                           '".$persona->getNombre()."'::pub.nombres,
                                           '".$persona->getDocumento()."'::pub.documento,
                                           '".$persona->getCuil()."'::pub.cuit,
@@ -60,10 +60,10 @@ $query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.ape
                                           '".$persona->getFechaTituloEspecialidad()."'::pub.observaciones,
                                           '".$persona->getAntecedentes()."'::pub.sino)";
 
-$consulta = asignarTurno($query);
+$consulta = asignarTurno($query);*/
 
 $jsonResponse = null;
-if($consulta["error"][0] == 0 && $consulta["cantregistros"][0] != 0){
+/*if($consulta["error"][0] == 0 && $consulta["cantregistros"][0] != 0){
     $inscripcion = new Inscripcion();
     $inscripcion->setPersona($persona);
     $inscripcion->setIdInscripcion($consulta['idinscripcion'][1]);
@@ -91,6 +91,13 @@ if($consulta["error"][0] == 0 && $consulta["cantregistros"][0] != 0){
     $errorMessage->setErrorMessage($mensaje);
     $jsonResponse = json_encode($errorMessage);
     $jsonResponse = addStatus($jsonResponse, 1);
-}
+}*/
+$inscripcion = new Inscripcion();
+$inscripcion->setPersona($persona);
+$inscripcion->setIdInscripcion(1234);
+//$status = ',"status":'.$consulta["error"][0];
+$status = ',"status":0';
+$jsonResponse = json_encode($inscripcion);
+$jsonResponse = substr_replace($jsonResponse, $status, strlen($jsonResponse)-1, 0);
 header('Content-Type: application/json');
 echo $jsonResponse;

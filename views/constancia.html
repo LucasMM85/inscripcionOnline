@@ -1,0 +1,79 @@
+<!-- CONSTANCIA DE INSCRIPCION -->
+<div class="col-md-10 col-md-offset-1 principal" id="ajaxDivResponse">
+    <div class="panel panel-login" id="queryResult">
+        <div class="panel-heading">
+            <div class="row">
+                <h3>Constancia de Inscripción</h3>
+            </div>
+            <hr>
+        </div>
+        <div class="panel-body" id="responseBody">
+            <div class="col-md-6 col-md-offset-3 alert alert-success text-center collapse" id="alertConfirmacion">
+                <strong><span id="mensajeConfirmacion"></span></strong>
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+                <div>
+                    <div class="user-label">Inscripcion:</div>
+                    <div class="user-value" id="inscripcion">{{ constancia.idInscripcion }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Nombre/s:</div>
+                    <div class="user-value" id="nombres"> {{ constancia.persona.nombre }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Apellido/s:</div>
+                    <div class="user-value" id="apellidos">{{ constancia.persona.apellido }}</div>
+                </div>
+                <div>
+                    <div class="user-label">DNI:</div>
+                    <div class="user-value" id="dni">{{ constancia.persona.documento }}</div>
+                </div>
+                <div>
+                    <div class="user-label">CUIL:</div>
+                    <div class="user-value" id="cuil">{{ constancia.persona.cuil }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Sexo:</div>
+                    <div class="user-value" id="sexo_output">{{ constancia.persona.sexo }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Domicilio:</div>
+                    <div class="user-value" id="domicilio">{{ constancia.persona.domicilio }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Localidad:</div>
+                    <div class="user-value" id="localidad_output">{{ constancia.persona.localidad }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Código Postal:</div>
+                    <div class="user-value" id="codpostal">{{ constancia.persona.codpostal }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Fecha de Nacimiento:</div>
+                    <div class="user-value" id="fechanac">{{ constancia.persona.fechanac }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Título Universitario:</div>
+                    <div class="user-value" id="titulo_universitario">{{ constancia.persona.tituloUniversitario }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Fecha de Título Universitario:</div>
+                    <div class="user-value" id="fecha_titulo_univ">{{ constancia.persona.fechaTituloUniversitario }}</div>
+                </div>
+                <div>
+                    <div class="user-label">Fecha de finalizacion de la especialidad, residencia, pasantía o concurrencia:</div>
+                    <div class="user-value" id="fecha_titulo_especialidad">{{ constancia.persona.fechaTituloEspecialidad }}</div>
+                </div>
+                <div>
+                    <div class="user-label">¿Sancionado o excluído?:</div>
+                    <div class="user-value" id="sancionado_output">{{ constancia.persona.sancion }}</div>
+                </div>
+                <div>
+                    <div class="user-label">¿Antecedentes Penales?:</div>
+                    <div class="user-value" id="antecedentes_output">{{ constancia.persona.antecedentes }}</div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-success centrado" id="imprimirLink" href="javascript:window.print()">Imprimir</a>
+    </div>
+</div>

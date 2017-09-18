@@ -333,4 +333,28 @@ class Persona implements \JsonSerializable
     {
         return get_object_vars($this);
     }
+
+    public function newPersona($apellido, $nombre, $documento, $cuil, $sexo, $fechanac, $domicilio, $localidad, $codpostal, $telfijo, $telcelular,
+                               $email, $tituloUniv, $fechaTituloUniv, $fechaTituloEsp, $sancion, $antecedentes){
+        $persona = new Persona();
+        $persona->setApellido($apellido);
+        $persona->setNombre($nombre);
+        $persona->setDocumento($documento);
+        $persona->setCuil($cuil);
+        $persona->setSexo($sexo);
+        $persona->setFechanac($fechanac);
+        $persona->setDomicilio($domicilio);
+        $persona->setLocalidad($localidad);
+        $persona->setCodpostal($codpostal);
+        $persona->setTelfijo($telfijo);
+        $persona->setTelcelular($telcelular);
+        $persona->setEmail($email);
+        $persona->setTituloUniversitario($tituloUniv);
+        $persona->setFechaTituloUniversitario($fechaTituloUniv);
+        $persona->setFechaTituloEspecialidad($fechaTituloEsp);
+        $persona->setSancion($sancion);
+        $persona->setAntecedentes($antecedentes);
+
+        return $persona;
+    }
 }

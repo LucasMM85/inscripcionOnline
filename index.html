@@ -1,20 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" ng-app="turnosOnline">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+        <link rel="stylesheet" type="text/css" href="style/jquery-ui.css">
 
-        <script type="application/javascript" src="js/jquery-3.2.1.js"></script>
-        <script type="application/javascript" src="js/jquery-ui.min.js"></script>
-        <script type="application/javascript" src="js/jquery.validate.min.js"></script>
-        <script type="application/javascript" src="js/bootstrap.min.js"></script>
-        <script type="application/javascript" src="js/funciones.js"></script>
-        <script type="application/javascript" src="js/validate.js"></script>
-        <script type="application/javascript" src="js/formProcess.js"></script>
+        <script type="application/javascript" src="scripts/vendor/jquery-3.2.1.js"></script>
+        <script type="application/javascript" src="scripts/vendor/jquery-ui.min.js"></script>
+        <script type="application/javascript" src="scripts/vendor/jquery.validate.min.js"></script>
+        <script type="application/javascript" src="scripts/vendor/bootstrap.min.js"></script>
+
+        <script type="application/javascript" src="scripts/vendor/angular.min.js"></script>
+        <script type="application/javascript" src="scripts/vendor/angular-route.min.js"></script>
+        <script type="application/javascript" src="scripts/vendor/angular-messages.min.js"></script>
+
+        <script type="application/javascript" src="scripts/app.js"></script>
+        <script type="application/javascript" src="scripts/controllers/MainController.js"></script>
+        <script type="application/javascript" src="scripts/controllers/BuscarConstanciaController.js"></script>
+        <script type="application/javascript" src="scripts/controllers/ConstanciaController.js"></script>
+        <script type="application/javascript" src="scripts/controllers/InscripcionFormController.js"></script>
+
+        <script type="application/javascript" src="scripts/services/constancia.js"></script>
+        <script type="application/javascript" src="scripts/directives/restrictTo.js"></script>
+        <script type="application/javascript" src="scripts/directives/datepicker.js"></script>
+
         <script src='https://www.google.com/recaptcha/api.js'></script>
+        <base href="/turnosonline/" />
         <title>Ministerio Público Fiscal</title>
     </head>
     <body>
@@ -22,268 +35,13 @@
             <div class="row">
                 <div class="panel-heading">
                     <div class="panel-title text-center">
-                        <img src="css/logompf.png" class="img-responsive center-block logo-mpf">
+                        <a href="#/inicio"><img src="img/logompf.png" class="img-responsive center-block logo-mpf"></a>
                             <hr class="big-hruler" />
-                        <h3 class="title-separator">CONCURSO PÚBLICO DE OPOSICIÓN Y ANTECEDENTES: BIOQUÍMICO FORENSE</h3>
+                        <h3 class="title-separator">CONCURSO PÚBLICO DE OPOSICIÓN Y ANTECEDENTES DE MEDICO FORENSE</h3>
                     </div>
                 </div>
-
-                <!-- CONSTANCIA DE INSCRIPCION -->
-                <div class="col-md-10 col-md-offset-1 collapse principal" id="ajaxDivResponse">
-                    <div class="panel panel-login" id="queryResult">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <h3>Constancia de Inscripción</h3>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="panel-body" id="responseBody">
-                            <div class="col-md-6 col-md-offset-3 alert alert-success text-center" id="alertConfirmacion">
-                                <strong><span id="mensajeConfirmacion"></span></strong>
-                            </div>
-                            <div class="col-md-10 col-md-offset-1">
-                                <div>
-                                    <div class="user-label">Inscripcion:</div>
-                                    <div class="user-value" id="inscripcion"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Nombre/s:</div>
-                                    <div class="user-value" id="nombres"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Apellido/s:</div>
-                                    <div class="user-value" id="apellidos"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">DNI:</div>
-                                    <div class="user-value" id="dni"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">CUIL:</div>
-                                    <div class="user-value" id="cuil"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Sexo:</div>
-                                    <div class="user-value" id="sexo_output"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Domicilio:</div>
-                                    <div class="user-value" id="domicilio"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Localidad:</div>
-                                    <div class="user-value" id="localidad_output"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Código Postal:</div>
-                                    <div class="user-value" id="codpostal"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Fecha de Nacimiento:</div>
-                                    <div class="user-value" id="fechanac"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Título Universitario:</div>
-                                    <div class="user-value" id="titulo_universitario"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">Fecha de Título Universitario:</div>
-                                    <div class="user-value" id="fecha_titulo_univ"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">¿Sancionado o excluído?:</div>
-                                    <div class="user-value" id="sancionado_output"></div>
-                                </div>
-                                <div>
-                                    <div class="user-label">¿Antecedentes Penales?:</div>
-                                    <div class="user-value" id="antecedentes_output"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="btn btn-success centrado" id="imprimirLink" href="javascript:window.print()">Imprimir</a>
-                    </div>
-                </div>
-
-                <!-- PANTALLA INICIAL -->
-                <div class="col-md-4 col-md-offset-4" id="contenedorInicial">
-                    <div class="panel panel-login">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <h3>Inscripción</h3>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="panel-body text-center" id="cuerpoInicial">
-                            <div class="center-buttons">
-                                <div class="btn-toolbar">
-                                    <a id="btnVerConstancia" class="btn btn-info btn-lg" href="javascript:mostrarVerConstancia()">Ver Constancia</a>
-                                    <a id="btnInscripcion" class="btn btn-info btn-lg" href="javascript:mostrarInscripcion()">Inscripción</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- FORMULARIO VER CONSTANCIA -->
-                <div class="col-md-4 col-md-offset-4 collapse" id="contenedorVerConstancia">
-                    <div class="panel panel-login">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <h3>Ver o Reimprimir Constancia</h3>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="panel-body" id="cuerpoVerConstancia">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form id="form-verConstancia" name="form-verConstancia" action="" method="post" role="form" style="display: block;">
-                                        <div id="formVerConstanciaAlert" class="alert alert-warning collapse">
-                                            <a class="close">×</a>
-                                            <span id="alertVerConstancia"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="documento-verConstancia">DNI:</label>
-                                            <input type="text" name="documento-verConstancia" id="documento-verConstancia" tabindex="1" class="form-control" placeholder="Nro. Documento" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sexo-verConstancia">Sexo:</label>
-                                            <select class="form-control" tabindex="2" name="sexo-verConstancia" id="sexo-verConstancia">
-                                                <option value="-1" disabled selected>Seleccione...</option>
-                                                <option value="F">Femenino</option>
-                                                <option value="M">Masculino</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-sm-offset-3">
-                                                    <input type="submit" name="submit-verConstancia" id="submit-verConstancia" tabindex="4" class="form-control btn btn-login" value="Aceptar">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FORMULARIO DE INSCRIPCION -->
-                <div class="col-md-6 col-md-offset-3 collapse" id="ajaxDivRequest">
-                    <div class="panel panel-login">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <h3>Inscripción</h3>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="panel-body" id="divTurno">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form id="form-turno" name="form-turno" action="" method="post" role="form" style="display: block;">
-                                        <div id="formAlert" class="alert alert-warning collapse">
-                                            <a class="close">×</a>
-                                            <span id="alertLogin"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="apellido_input">Apellido:</label>
-                                            <input type="text" name="apellido_input" id="apellido_input" tabindex="1" class="form-control" placeholder="Apellido" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombre_input">Nombre:</label>
-                                            <input type="text" name="nombre_input" id="nombre_input" tabindex="1" class="form-control" placeholder="Nombre" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="dni_input">DNI:</label>
-                                            <input type="text" name="dni_input" id="dni_input" tabindex="1" class="form-control" placeholder="Nro. DNI" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cuit_input">CUIT/CUIL:</label>
-                                            <input type="text" name="cuit_input" id="cuit_input" tabindex="1" class="form-control" placeholder="Nro. CUIT/CUIL" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email_input">E-mail:</label>
-                                            <input type="text" name="email_input" id="email_input" tabindex="1" class="form-control" placeholder="E-mail" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sexo">Sexo:</label>
-                                            <select class="form-control" tabindex="1" name="sexo" id="sexo">
-                                                <option value="-1" disabled selected>Seleccione...</option>
-                                                <option value="F">Femenino</option>
-                                                <option value="M">Masculino</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechanac_input">Fecha de Nacimiento:</label>
-                                            <input type="text" readonly="true" name="fechanac_input" id="fechanac_input" tabindex="1" class="form-control datepicker" placeholder="Seleccione la fecha" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="domicilio_input">Domicilio:</label>
-                                            <input type="text" name="domicilio_input" id="domicilio_input" tabindex="1" class="form-control" placeholder="Domicilio" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="localidad">Localidad:</label>
-                                            <select class="form-control" tabindex="1" name="localidad" id="localidad">
-                                                <option value="-1" disabled selected>Seleccione...</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cpostal_input">Código Postal:</label>
-                                            <input type="text" name="cpostal_input" id="cpostal_input" tabindex="1" class="form-control" placeholder="Código Postal" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="telfijo_input">Teléfono Fijo:</label>
-                                            <input type="text" name="telfijo_input" id="telfijo_input" tabindex="1" class="form-control" placeholder="Teléfono Fijo" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="telcelular_input">Teléfono Celular:</label>
-                                            <input type="text" name="telcelular_input" id="telcelular_input" tabindex="1" class="form-control" placeholder="Teléfono Celular" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="titulo_univ">Título Universitario:</label>
-                                            <select class="form-control" tabindex="1" name="titulo_univ" id="titulo_univ">
-                                                <option value="-1" disabled selected>Seleccione...</option>
-                                                <option value="bioquimico">BIOQUÍMICO</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechatitulomedico_input">Fecha de otorgamiento del título de Bioquímico:</label>
-                                            <input type="text" name="fechatitulomedico_input" id="fechatitulomedico_input" tabindex="1" placeholder="Seleccione la fecha" class="form-control datepicker" value="" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sancionado_input">¿Ha sido sancionado o excluído de la matrícula profesional o inhabilitado para el desempeño de cargos públicos?:</label>
-                                            <select class="form-control" tabindex="1" name="sancionado_input" id="sancionado_input">
-                                                <option value="-1" disabled selected>Seleccione...</option>
-                                                <option value="1">SI</option>
-                                                <option value="0">NO</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="antecedentes_input">¿Cuenta con antecedentes penales?:</label>
-                                            <select class="form-control" tabindex="1" name="antecedentes_input" id="antecedentes_input">
-                                                <option value="-1" disabled selected>Seleccione...</option>
-                                                <option value="1">SI</option>
-                                                <option value="0">NO</option>
-                                            </select>
-                                        </div>
-
-                                        <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
-                                        <div id="dvCaptcha" class="g-recaptcha center-captcha" data-sitekey="6LdLSyQUAAAAADqKK5aoMIif1rjcuIJ4hSKER1Xp"></div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-sm-offset-3">
-                                                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Aceptar">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear"></div>
             </div>
+            <div ng-view></div>
         </div>
     </body>
 </html>

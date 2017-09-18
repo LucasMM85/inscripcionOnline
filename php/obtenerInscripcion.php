@@ -8,10 +8,16 @@ require_once("db/funcionesDb.php");
 require_once("model/Inscripcion.php");
 require_once("model/Persona.php");
 require_once("model/ErrorInscripcion.php");
+require_once("inscripcionUtils.php");
 
-$idConcurso = 7;
-$documento = $_POST['documento-verConstancia'];
-$sexo = $_POST['sexo-verConstancia'];
+if(empty($_POST)){
+    $postdata = json_decode(file_get_contents("php://input"),true);
+    $_POST = $postdata;
+}
+
+$idConcurso = 8;
+$documento = $_POST['documento'];
+$sexo = $_POST['sexo'];
 
 $query = "select * from conc.vw_constanciainscripcion where idconcurso=".$idConcurso." and documento=".$documento." and sexo='".$sexo."'";
 
@@ -54,47 +60,5 @@ if($consulta["error"][0] == 0 && $consulta["cantregistros"][0] != 0){
     $jsonResponse = addStatus($jsonResponse, 1);
 }
 
-function getSexoLiteral($sexoInicial){
-    if(strcmp($sexoInicial, "M") === 0){
-        $sexoLiteral = "MASCULINO";
-    } else {
-        $sexoLiteral = "FEMENINO";
-    }
-    return $sexoLiteral;
-}
-
-function getEspecialidad($especialidadInicial){
-    if(strcmp($especialidadInicial, "pediatra") === 0){
-        $especialidad = "MÉDICO PEDIATRA";
-    } else if(strcmp($especialidadInicial, "cirpediatra") === 0){
-        $especialidad = "MÉDICO CIRUJANO PEDIÁTRICO";
-    } else if(strcmp($especialidadInicial, "traumatologo") === 0){
-        $especialidad = "MÉDICO TRAUMATÓLOGO";
-    } else if(strcmp($especialidadInicial, "bioquimico") === 0){
-        $especialidad = "BIOQUIMICO";
-    }
-    return $especialidad;
-}
-
-function getSiNo($valor){
-    if(strcmp($valor, "0") == 0){
-        $texto = "NO";
-    } else {
-        $texto = "SI";
-    }
-    return $texto;
-}
-
-function addStatus($jsonString, $status){
-    $jsonString = rtrim($jsonString, '}');
-    return $jsonString.',"status":'.$status.'}';
-}
-
-function formatoFecha($fecha){
-    if($fecha != null){
-        return date("d/m/Y", strtotime($fecha));
-    }
-    return null;
-}
-
+header('Content-Type: application/json');
 echo $jsonResponse;
