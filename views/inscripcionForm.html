@@ -11,6 +11,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <form id="formInscripcion" name="formInscripcion" ng-submit="inscribir()" style="display: block;">
+                        <div ng-if="errorMessage" class="alert alert-warning">
+                            <a class="close">×</a>
+                            <span id="alertLogin">{{errorMessage}}</span>
+                        </div>
                         <div class="form-group">
                             <label for="apellido_input">Apellido:</label>
                             <input type="text" name="apellido_input" id="apellido_input" tabindex="1" class="form-control"
@@ -87,16 +91,10 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="fechatitulomedico_input">Fecha de otorgamiento del título de Médico:</label>
+                            <label for="fechatitulomedico_input">Fecha de otorgamiento del título:</label>
                             <input type="text" name="fechatitulomedico_input" id="fechatitulomedico_input" tabindex="1" placeholder="Seleccione la fecha"
                                    class="form-control datepicker" value="" readonly
                                    ng-model="fechaTitulo" datepicker>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechatituloespecialidad_input">Fecha de finalizacion de la especialidad, residencia, pasantía o concurrencia:</label>
-                            <input type="text" name="fechatituloespecialidad_input" id="fechatituloespecialidad_input" placeholder="Seleccione la fecha" tabindex="1"
-                                   class="form-control datepicker" value="" readonly
-                                   ng-model="fechaFinEspecialidad" datepicker>
                         </div>
                         <div class="form-group">
                             <label for="sancionado_input">¿Ha sido sancionado o excluído de la matrícula profesional o inhabilitado para el desempeño de cargos públicos?:</label>

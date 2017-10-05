@@ -31,10 +31,20 @@
                         });
         };
 
+        var getInscripcionActiva = function () {
+            var url = "php/verificaEstadoInscripcion.php";
+
+            return $http.get(url)
+                        .then(function (response) {
+                            return response.data;
+                        });
+        };
+
         return {
             getConstancia: getConstancia,
             getLocalidades: getLocalidades,
-            nuevaInscripcion: nuevaInscripcion
+            nuevaInscripcion: nuevaInscripcion,
+            getInscripcionActiva: getInscripcionActiva
         };
     };
 

@@ -11,7 +11,7 @@ function parametros_conexion_pg(){
     $usuario='sa';
     $clave='1';
     $nombredb='cuestionario';
-    $puerto='5437';
+    $puerto='5438';
     $host='127.0.0.1';
     $cadena_con="host=".$host." port=".$puerto." dbname=".$nombredb." user=".$usuario." password=".$clave."";
 
@@ -19,7 +19,7 @@ function parametros_conexion_pg(){
 }
 
 function asignarTurno($consulta){
-    ini_set('display_errors',1);
+    ini_set('display_errors',0);
     $cadenaconexion = parametros_conexion_pg();
     $conexion = pg_connect($cadenaconexion);
 

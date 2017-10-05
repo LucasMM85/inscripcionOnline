@@ -9,10 +9,14 @@
         </div>
         <div class="panel-body text-center" id="cuerpoInicial">
             <!-- <a id="btnVerConstancia" class="btn btn-info btn-lg" href="#/buscarConstancia">Ver Constancia</a> -->
+            <div ng-if="isActivo==false" class="alert alert-warning">
+                <span id="alertLogin">{{mensajeError}}</span>
+            </div>
             <div class="center-buttons">
                 <div class="btn-toolbar">
                     <a id="btnVerConstancia" class="btn btn-info btn-lg" href="#/buscarConstancia">Ver Constancia</a>
-                    <a id="btnInscripcion" class="btn btn-info btn-lg" href="#/inscripcion">Inscripción</a>
+                    <a ng-if="isActivo==true" id="btnInscripcion" class="btn btn-info btn-lg" href="#/inscripcion">Inscripción</a>
+                    <a ng-if="isActivo==false" disabled class="btn btn-info btn-lg">Inscripción</a>
                 </div>
             </div>
         </div>

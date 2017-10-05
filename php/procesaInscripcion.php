@@ -21,7 +21,7 @@ if(empty($_POST)){
 }
 
 
-$idConcurso = 8;
+$idConcurso = 9;
 $persona = new Persona();
 $persona->setApellido($_POST['apellido']);
 $persona->setNombre($_POST['nombre']);
@@ -37,7 +37,7 @@ $persona->setTelcelular($_POST['telcelular']);
 $persona->setEmail($_POST['email']);
 $persona->setTituloUniversitario($_POST['titulo']);
 $persona->setFechaTituloUniversitario($_POST['fechaTitulo']);
-$persona->setFechaTituloEspecialidad($_POST['fechaEspecialidad']);
+$persona->setFechaTituloEspecialidad(null);
 $persona->setSancion($_POST['sancionado']);
 $persona->setAntecedentes($_POST['antecedentes']);
 
@@ -57,7 +57,7 @@ $query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.ape
                                           '".$idConcurso."'::conc.idconcurso,
                                           '".$persona->getSancion()."'::pub.sino,
                                           '".$persona->getFechaTituloUniversitario()."'::pub.observaciones,
-                                          '".$persona->getFechaTituloEspecialidad()."'::pub.observaciones,
+                                          '".null."'::pub.observaciones,
                                           '".$persona->getAntecedentes()."'::pub.sino)";
 
 $consulta = asignarTurno($query);
@@ -76,21 +76,18 @@ if($consulta["error"][0] == 0 && $consulta["cantregistros"][0] != 0){
     $mensaje = substr($consulta["errmsg"][0], 0, strpos($consulta["errmsg"][0], "CONTEXT"));
     $errorMessage->setErrorMessage($mensaje);
     $jsonResponse = json_encode($errorMessage);
-    $jsonResponse = addStatus($jsonResponse, $consulta["error"][0]);
 } else if ($consulta["error"][0] == 1){
     $errorMessage = new ErrorInscripcion();
     $errorMessage->setErrorType(1);
     $mensaje = $consulta["errmsg"][0];
     $errorMessage->setErrorMessage($mensaje);
     $jsonResponse = json_encode($errorMessage);
-    $jsonResponse = addStatus($jsonResponse, $consulta["error"][0]);
 } else {
     $mensaje = "Ocurrió un error al consultar la base de datos.";
     $errorMessage = new ErrorInscripcion();
     $errorMessage->setErrorType(1);
     $errorMessage->setErrorMessage($mensaje);
     $jsonResponse = json_encode($errorMessage);
-    $jsonResponse = addStatus($jsonResponse, 1);
 }
 header('Content-Type: application/json');
 echo $jsonResponse;

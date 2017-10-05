@@ -8,8 +8,8 @@
         ];
 
         $scope.titulos = [
-            {tituloId: "cirujano", tituloName: "MEDICO CIRUJANO"},
-            {tituloId: "legista", tituloName: "MEDICO LEGISTA"}
+            {tituloId: "bioquimico", tituloName: "BIOQUIMICO"},
+            {tituloId: "licgenetica", tituloName: "LICENCIADO EN GENETICA"}
         ];
 
         $scope.booleanos = [
@@ -30,14 +30,20 @@
 
 
         var onInscripcion = function (datos) {
-            var sexo = datos.persona.sexo;
-            var dni = datos.persona.documento;
+            if(datos.errorMessage != undefined){
+                console.error = "No se realizó la inscripción";
+                $scope.errorMessage = datos.errorMessage;
+            } else {
+                var sexo = datos.persona.sexo;
+                var dni = datos.persona.documento;
 
-            $location.path("/constancia/" + sexo + "/" + dni);
+                $location.path("/constancia/" + sexo + "/" + dni);
+            }
         };
 
         var onErrorInscripcion = function (reason) {
-            console.error = "No se pudieron obtener las localidades";
+            console.error = "No se realizó la inscripción";
+            //$scope.errorMessage = reason.errorMessage;
         };
 
         $scope.inscribir = function () {
@@ -56,7 +62,7 @@
                            'email': $scope.email_input,
                            'titulo': $scope.tituloId,
                            'fechaTitulo': $scope.fechaTitulo,
-                           'fechaEspecialidad': $scope.fechaFinEspecialidad,
+                           'fechaEspecialidad': null,
                            'sancionado': $scope.sancionado,
                            'antecedentes': $scope.antecedentes};
 
