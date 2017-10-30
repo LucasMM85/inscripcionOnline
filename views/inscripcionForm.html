@@ -83,7 +83,7 @@
                                    placeholder="E-mail" value="" ng-model="email_input" required>
                         </div>
                         <div class="form-group">
-                            <label for="titulo_univ">Título Universitario:</label>
+                            <label for="titulo_univ">Título Universitario - Médico:</label>
                             <select class="form-control" tabindex="1" name="titulo_univ" id="titulo_univ"
                                     ng-model="tituloId"
                                     ng-options="titulo.tituloId as titulo.tituloName for titulo in titulos">
@@ -95,6 +95,13 @@
                             <input type="text" name="fechatitulomedico_input" id="fechatitulomedico_input" tabindex="1" placeholder="Seleccione la fecha"
                                    class="form-control datepicker" value="" readonly
                                    ng-model="fechaTitulo" datepicker>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fechatitulomedico_input">Fecha de otorgamiento de la especialidad:</label>
+                            <input type="text" name="fechaespecialidad_input" id="fechaespecialidad_input" tabindex="1" placeholder="Seleccione la fecha"
+                                   class="form-control datepicker" value="" readonly
+                                   ng-model="fechaEspecialidad" datepicker>
                         </div>
                         <div class="form-group">
                             <label for="sancionado_input">¿Ha sido sancionado o excluído de la matrícula profesional o inhabilitado para el desempeño de cargos públicos?:</label>

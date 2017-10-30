@@ -21,7 +21,7 @@ if(empty($_POST)){
 }
 
 
-$idConcurso = 9;
+$idConcurso = 10;
 $persona = new Persona();
 $persona->setApellido($_POST['apellido']);
 $persona->setNombre($_POST['nombre']);
@@ -57,7 +57,7 @@ $query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.ape
                                           '".$idConcurso."'::conc.idconcurso,
                                           '".$persona->getSancion()."'::pub.sino,
                                           '".$persona->getFechaTituloUniversitario()."'::pub.observaciones,
-                                          '".null."'::pub.observaciones,
+                                          '".$persona->getFechaTituloEspecialidad()."'::pub.observaciones,
                                           '".$persona->getAntecedentes()."'::pub.sino)";
 
 $consulta = asignarTurno($query);

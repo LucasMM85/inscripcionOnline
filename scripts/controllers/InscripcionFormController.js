@@ -8,8 +8,7 @@
         ];
 
         $scope.titulos = [
-            {tituloId: "bioquimico", tituloName: "BIOQUIMICO"},
-            {tituloId: "licgenetica", tituloName: "LICENCIADO EN GENETICA"}
+            {tituloId: "anatomopat", tituloName: "MEDICO ANATOMIA PATOLOGICA"}
         ];
 
         $scope.booleanos = [
@@ -62,6 +61,7 @@
                            'email': $scope.email_input,
                            'titulo': $scope.tituloId,
                            'fechaTitulo': $scope.fechaTitulo,
+                           'especialidad': $scope.especialidad,
                            'fechaEspecialidad': null,
                            'sancionado': $scope.sancionado,
                            'antecedentes': $scope.antecedentes};

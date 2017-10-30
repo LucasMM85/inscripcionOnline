@@ -6,7 +6,7 @@ require_once("db/funcionesDb.php");
 require_once("inscripcionUtils.php");
 require_once("model/EstadoInscripcion.php");
 
-$idconcurso = 9;
+$idconcurso = 10;
 
 $query = "SELECT * FROM conc.spc_inscripcion_activa('".$idconcurso."')";
 

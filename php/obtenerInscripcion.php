@@ -15,7 +15,7 @@ if(empty($_POST)){
     $_POST = $postdata;
 }
 
-$idConcurso = 9;
+$idConcurso = 10;
 $documento = $_POST['documento'];
 $sexo = $_POST['sexo'];
 
@@ -43,7 +43,7 @@ if($consulta["error"][0] == 0 && $consulta["cantregistros"][0] != 0){
     $persona->setEmail($consulta['email'][1]);
     $persona->setTituloUniversitario(getEspecialidad($consulta['formacionprof'][1]));
     $persona->setFechaTituloUniversitario($consulta['fechatitulo'][1]);
-    $persona->setFechaTituloEspecialidad(null);
+    $persona->setFechaTituloEspecialidad($consulta['fechaespecialidad'][1]);
     $persona->setSancion(getSiNo($consulta['sanciones'][1]));
     $persona->setAntecedentes(getSiNo($consulta['antecedentes'][1]));
 

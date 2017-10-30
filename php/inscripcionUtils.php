@@ -40,6 +40,8 @@ function getEspecialidad($especialidadInicial){
         $especialidad = "BIOQUIMICO";
     } else if(strcmp($especialidadInicial, "licgenetica") === 0){
         $especialidad = "LICENCIADO EN GENÉTICA";
+    } else if(strcmp($especialidadInicial, "anatomopat") === 0) {
+        $especialidad = "MEDICO ANATOMÍA PATOLÓGICA";
     }
     return $especialidad;
 }
