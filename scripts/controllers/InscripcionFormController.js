@@ -8,7 +8,25 @@
         ];
 
         $scope.titulos = [
-            {tituloId: "anatomopat", tituloName: "MEDICO ANATOMIA PATOLOGICA"}
+            {tituloId: "5", tituloName: "ESTUDIANTE REGULAR DERECHO >=20MATERIAS"},
+            {tituloId: "2", tituloName: "ABOGADO"},
+            {tituloId: "3", tituloName: "PROCURADOR"},
+            {tituloId: "4", tituloName: "ESCRIBANO"}
+        ];
+
+        $scope.universidades = [
+            {valorOpcion: "UNT", etiquetaOpcion: "Universidad Nac. Tucumán"},
+            {valorOpcion: "SPT", etiquetaOpcion: "San Pablo Tucumán"},
+            {valorOpcion: "UNSTA", etiquetaOpcion: "U. del Norte S. Tomás de Aquino"},
+            {valorOpcion: "UBA", etiquetaOpcion: "Universidad de Buenos Aires"},
+            {valorOpcion: "UNC", etiquetaOpcion: "Universidad Nacional de Córdoba"},
+            {valorOpcion: "SXXI", etiquetaOpcion: "Siglo XXI"},
+            {valorOpcion: "UCSE", etiquetaOpcion: "Univ. Católica de S. del Estero"},
+            {valorOpcion: "UNSE", etiquetaOpcion: "Univ. Nac. de S. del Estero"},
+            {valorOpcion: "UNSA", etiquetaOpcion: "Univ. Nac. de Salta"},
+            {valorOpcion: "UCASAL", etiquetaOpcion: "Univ. Católica de Salta"},
+            {valorOpcion: "UNCA", etiquetaOpcion: "Univ. Nac. de Catamarca"},
+            {valorOpcion: "OTRA", etiquetaOpcion: "Otra Universidad"}
         ];
 
         $scope.booleanos = [
@@ -61,10 +79,9 @@
                            'email': $scope.email_input,
                            'titulo': $scope.tituloId,
                            'fechaTitulo': $scope.fechaTitulo,
-                           'especialidad': $scope.especialidad,
-                           'fechaEspecialidad': null,
-                           'sancionado': $scope.sancionado,
-                           'antecedentes': $scope.antecedentes};
+                           //'especialidad': $scope.especialidad,
+                           'maestranza': $scope.maestranza_input,
+                           'universidad': $scope.universidad_input};
 
             constancia.nuevaInscripcion(persona)
                       .then(onInscripcion, onErrorInscripcion);

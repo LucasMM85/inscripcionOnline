@@ -1,4 +1,7 @@
 <!-- FORMULARIO DE INSCRIPCION -->
+<div style="text-align: center;">
+    <h3><strong>IMPORTANTE:</strong> En caso de ser estudiante, en el campo correspondiente a fecha de otogramiento de titulo, consignar la fecha de hoy.</h3>
+</div>
 <div class="col-md-6 col-md-offset-3" id="ajaxDivRequest">
     <div class="panel panel-login">
         <div class="panel-heading">
@@ -83,7 +86,7 @@
                                    placeholder="E-mail" value="" ng-model="email_input" required>
                         </div>
                         <div class="form-group">
-                            <label for="titulo_univ">Título Universitario - Médico:</label>
+                            <label for="titulo_univ">Título Universitario:</label>
                             <select class="form-control" tabindex="1" name="titulo_univ" id="titulo_univ"
                                     ng-model="tituloId"
                                     ng-options="titulo.tituloId as titulo.tituloName for titulo in titulos">
@@ -91,31 +94,25 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="fechatitulomedico_input">Fecha de otorgamiento del título:</label>
-                            <input type="text" name="fechatitulomedico_input" id="fechatitulomedico_input" tabindex="1" placeholder="Seleccione la fecha"
+                            <label for="fechatitulo_input">Fecha de otorgamiento del título:</label>
+                            <input type="text" name="fechatitulo_input" id="fechatitulo_input" tabindex="1" placeholder="Seleccione la fecha"
                                    class="form-control datepicker" value="" readonly
                                    ng-model="fechaTitulo" datepicker>
                         </div>
 
                         <div class="form-group">
-                            <label for="fechatitulomedico_input">Fecha de otorgamiento de la especialidad:</label>
-                            <input type="text" name="fechaespecialidad_input" id="fechaespecialidad_input" tabindex="1" placeholder="Seleccione la fecha"
-                                   class="form-control datepicker" value="" readonly
-                                   ng-model="fechaEspecialidad" datepicker>
-                        </div>
-                        <div class="form-group">
-                            <label for="sancionado_input">¿Ha sido sancionado o excluído de la matrícula profesional o inhabilitado para el desempeño de cargos públicos?:</label>
-                            <select class="form-control" tabindex="1" name="sancionado_input" id="sancionado_input"
-                                    ng-model="sancionado"
+                            <label for="maestranza_input">Empleado como maestranza del Poder Judicial de Tuc:</label>
+                            <select class="form-control" tabindex="1" name="maestranza_input" id="maestranza_input"
+                                    ng-model="maestranza_input"
                                     ng-options="booleano.booleanoId as booleano.booleanoName for booleano in booleanos">
                                 <option value="" disabled selected>Seleccione...</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="antecedentes_input">¿Cuenta con antecedentes penales?:</label>
-                            <select class="form-control" tabindex="1" name="antecedentes_input" id="antecedentes_input"
-                                    ng-model="antecedentes"
-                                    ng-options="booleano.booleanoId as booleano.booleanoName for booleano in booleanos">
+                            <label for="universidad_input">Universidad en que egresó, cursó o cursa</label>
+                            <select class="form-control" tabindex="1" name="universidad_input" id="universidad_input"
+                                    ng-model="universidad_input"
+                                    ng-options="universidad.valorOpcion as universidad.etiquetaOpcion for universidad in universidades">
                                 <option value="" disabled selected>Seleccione...</option>
                             </select>
                         </div>

@@ -17,11 +17,10 @@ class Persona implements \JsonSerializable
     private $telfijo;
     private $telcelular;
     private $email;
-    private $tituloUniversitario;
-    private $fechaTituloUniversitario;
-    private $fechaTituloEspecialidad;
-    private $sancion;
-    private $antecedentes;
+    private $tituloEducativo;
+    private $fechaTituloEducativo;
+    private $universidad;
+    private $maestranza;
 
     /**
      * @return mixed
@@ -242,119 +241,80 @@ class Persona implements \JsonSerializable
     /**
      * @return mixed
      */
-    public function getTituloUniversitario()
+    public function getTituloEducativo()
     {
-        return $this->tituloUniversitario;
+        return $this->tituloEducativo;
     }
 
     /**
-     * @param mixed $tituloUniversitario
+     * @param mixed $tituloEducativo
      * @return Persona
      */
-    public function setTituloUniversitario($tituloUniversitario)
+    public function setTituloEducativo($tituloEducativo)
     {
-        $this->tituloUniversitario = $tituloUniversitario;
+        $this->tituloEducativo = $tituloEducativo;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getFechaTituloUniversitario()
+    public function getFechaTituloEducativo()
     {
-        return $this->fechaTituloUniversitario;
+        return $this->fechaTituloEducativo;
     }
 
     /**
-     * @param mixed $fechaTituloUniversitario
+     * @param mixed $fechaTituloEducativo
      * @return Persona
      */
-    public function setFechaTituloUniversitario($fechaTituloUniversitario)
+    public function setFechaTituloEducativo($fechaTituloEducativo)
     {
-        $this->fechaTituloUniversitario = $fechaTituloUniversitario;
+        $this->fechaTituloEducativo = $fechaTituloEducativo;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getFechaTituloEspecialidad()
+    public function getUniversidad()
     {
-        return $this->fechaTituloEspecialidad;
+        return $this->universidad;
     }
 
     /**
-     * @param mixed $fechaTituloEspecialidad
+     * @param mixed $universidad
      * @return Persona
      */
-    public function setFechaTituloEspecialidad($fechaTituloEspecialidad)
+    public function setUniversidad($universidad)
     {
-        $this->fechaTituloEspecialidad = $fechaTituloEspecialidad;
+        $this->universidad = $universidad;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getSancion()
+    public function getMaestranza()
     {
-        return $this->sancion;
+        return $this->maestranza;
     }
 
     /**
-     * @param mixed $sancion
+     * @param mixed $maestranza
      * @return Persona
      */
-    public function setSancion($sancion)
+    public function setMaestranza($maestranza)
     {
-        $this->sancion = $sancion;
+        $this->maestranza = $maestranza;
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAntecedentes()
-    {
-        return $this->antecedentes;
-    }
-
-    /**
-     * @param mixed $antecedentes
-     * @return Persona
-     */
-    public function setAntecedentes($antecedentes)
-    {
-        $this->antecedentes = $antecedentes;
-        return $this;
-    }
 
     function jsonSerialize()
     {
         return get_object_vars($this);
     }
 
-    public function newPersona($apellido, $nombre, $documento, $cuil, $sexo, $fechanac, $domicilio, $localidad, $codpostal, $telfijo, $telcelular,
-                               $email, $tituloUniv, $fechaTituloUniv, $fechaTituloEsp, $sancion, $antecedentes){
-        $persona = new Persona();
-        $persona->setApellido($apellido);
-        $persona->setNombre($nombre);
-        $persona->setDocumento($documento);
-        $persona->setCuil($cuil);
-        $persona->setSexo($sexo);
-        $persona->setFechanac($fechanac);
-        $persona->setDomicilio($domicilio);
-        $persona->setLocalidad($localidad);
-        $persona->setCodpostal($codpostal);
-        $persona->setTelfijo($telfijo);
-        $persona->setTelcelular($telcelular);
-        $persona->setEmail($email);
-        $persona->setTituloUniversitario($tituloUniv);
-        $persona->setFechaTituloUniversitario($fechaTituloUniv);
-        $persona->setFechaTituloEspecialidad($fechaTituloEsp);
-        $persona->setSancion($sancion);
-        $persona->setAntecedentes($antecedentes);
 
-        return $persona;
-    }
 }

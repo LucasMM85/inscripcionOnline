@@ -21,7 +21,7 @@ if(empty($_POST)){
 }
 
 
-$idConcurso = 10;
+$idConcurso = 11;
 $persona = new Persona();
 $persona->setApellido($_POST['apellido']);
 $persona->setNombre($_POST['nombre']);
@@ -35,11 +35,10 @@ $persona->setCodpostal($_POST['cpostal']);
 $persona->setTelfijo($_POST['telfijo']);
 $persona->setTelcelular($_POST['telcelular']);
 $persona->setEmail($_POST['email']);
-$persona->setTituloUniversitario($_POST['titulo']);
-$persona->setFechaTituloUniversitario($_POST['fechaTitulo']);
-$persona->setFechaTituloEspecialidad(null);
-$persona->setSancion($_POST['sancionado']);
-$persona->setAntecedentes($_POST['antecedentes']);
+$persona->setTituloEducativo($_POST['titulo']);
+$persona->setFechaTituloEducativo($_POST['fechaTitulo']);
+$persona->setUniversidad($_POST['universidad']);
+$persona->setMaestranza($_POST['maestranza']);
 
 $query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.apellidos,
                                           '".$persona->getNombre()."'::pub.nombres,
@@ -53,12 +52,11 @@ $query = "select * from conc.spc_inscribe('".$persona->getApellido()."'::pub.ape
                                           '".$persona->getCodpostal()."'::pub.sqlvarchar20,
                                           '".$persona->getTelfijo()."'::pub.sqlvarchar20,
                                           '".$persona->getTelcelular()."'::pub.sqlvarchar20,
-                                          '".$persona->getTituloUniversitario()."'::pub.sqlvarchar20,
+                                          '".$persona->getTituloEducativo()."'::pub.idTituloEducativo,
+                                          '".valor_nulo($persona->getFechaTituloEducativo(), "null")."'::pub.sqldate,
                                           '".$idConcurso."'::conc.idconcurso,
-                                          '".$persona->getSancion()."'::pub.sino,
-                                          '".$persona->getFechaTituloUniversitario()."'::pub.observaciones,
-                                          '".$persona->getFechaTituloEspecialidad()."'::pub.observaciones,
-                                          '".$persona->getAntecedentes()."'::pub.sino)";
+                                          '".$persona->getUniversidad()."'::pub.sqlvarchar20,
+                                          ".valor_nulo($persona->getMaestranza(), "null")."::pub.sino)";
 
 $consulta = asignarTurno($query);
 
